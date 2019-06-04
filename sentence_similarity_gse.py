@@ -39,8 +39,10 @@ def run_and_plot(session_, input_tensor_, messages_, encoding_tensor):
 
 
 messages = [
-    "a man is not playing a piano",
-    "a man is playing a piano",
+    # "a man is not playing a piano",
+    # "a man is playing a piano",
+   "Playing Game of Thrones Season four episode ten",
+    "Playing Game of Thrones Season four episode nine"
     # "a man is cutting up a cucumber",
     # "a man is slicing a cucumber",
     # "the dog bites the man",
