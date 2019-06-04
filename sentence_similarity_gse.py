@@ -41,8 +41,8 @@ def run_and_plot(session_, input_tensor_, messages_, encoding_tensor):
 messages = [
     # "a man is not playing a piano",
     # "a man is playing a piano",
-   "Playing Game of Thrones Season four episode ten",
-    "Playing Game of Thrones Season four episode nine"
+    "The song named do not stop me now is playing",
+    "Playing do not stop me now by queen"
     # "a man is cutting up a cucumber",
     # "a man is slicing a cucumber",
     # "the dog bites the man",
@@ -77,9 +77,6 @@ with tf.Session() as session:
   session.run(tf.global_variables_initializer())
   session.run(tf.tables_initializer())
   print(f"Session initialized. {datetime.datetime.now()}")
-  saver = tf.train.Saver()
-  saver.save(session, 'my_test_model')
-
   # with tf.Session() as sess:
   #     saver.restore(sess, "my_test_model")
   #     run_and_plot(sess, similarity_input_placeholder, messages,similarity_message_encodings)

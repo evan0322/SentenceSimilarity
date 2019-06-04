@@ -54,11 +54,8 @@ def run_and_plot(session, input_placeholder, messages):
     plot_similarity(messages, message_embeddings, 90)
 
 
-# sen_1 = "Playing 'Do not stop me now'"
-# sen_2 = "'Do not stop me now' is playing"
-
-sen_1 = "Playing Game of Thrones Season four episode ten"
-sen_2 = "Playing Game of Thrones Season four episode nine"
+sen_1 = "Playing 'Do not stop me now'"
+sen_2 = "'Do not stop me now' is playing"
 
     # Smartphones
     # "a man is playing a piano",
