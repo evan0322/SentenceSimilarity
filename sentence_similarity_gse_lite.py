@@ -3,6 +3,8 @@ import tensorflow_hub as hub
 import sentencepiece as spm
 import matplotlib.pyplot as plt
 import numpy as np
+import datetime
+
 import os
 import pandas as pd
 import re
@@ -11,6 +13,7 @@ import seaborn as sns
 
 module = hub.Module("https://tfhub.dev/google/universal-sentence-encoder-lite/2")
 
+print(f"Execution started. {datetime.datetime.now()}")
 
 input_placeholder = tf.sparse_placeholder(tf.int64, shape=[None, None])
 encodings = module(
@@ -41,6 +44,7 @@ def process_to_IDs_in_sparse_format(sp, sentences):
 
 
 def plot_similarity(labels, features, rotation):
+  print(f"corr finished. {datetime.datetime.now()}")
   corr = np.inner(features, features)
   print(corr)
   sns.set(font_scale=1.2)
@@ -56,22 +60,25 @@ def plot_similarity(labels, features, rotation):
 
 
 def run_and_plot(session, input_placeholder, messages):
+  print(f"run_and_plot started. {datetime.datetime.now()}")
+
   values, indices, dense_shape = process_to_IDs_in_sparse_format(sp, messages)
 
+  print(f"id processed. {datetime.datetime.now()}")
   message_embeddings = session.run(
       encodings,
       feed_dict={input_placeholder.values: values,
                 input_placeholder.indices: indices,
                 input_placeholder.dense_shape: dense_shape})
 
-  print(f"the messages are {messages}, the embeddings are {message_embeddings}")
+  print(f"the messages are {messages}, the embeddings are {message_embeddings}, {datetime.datetime.now()}")
   plot_similarity(messages, message_embeddings, 90)
 
 
 messages = [
     # Smartphones
     "a man is playing a piano",
-    "a man plays a piano",
+    "a man is playing a trump",
     #     "a man is cutting up a cucumber",
     # "a man is slicing a cucumber",
     # "the dog bites the man",
@@ -98,4 +105,3 @@ with tf.Session() as session:
   session.run(tf.global_variables_initializer())
   session.run(tf.tables_initializer())
   run_and_plot(session, input_placeholder, messages)
-  plt.show()
