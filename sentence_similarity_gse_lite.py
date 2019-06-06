@@ -54,9 +54,17 @@ def run_and_plot(session, input_placeholder, messages):
     plot_similarity(messages, message_embeddings, 90)
 
 
-sen_1 = "Playing 'Do not stop me now'"
-sen_2 = "'Do not stop me now' is playing"
+sen_1 = "Turn the volume to 70 percent"
+sen_2 = "'Turn the volume to 7 percent"
 
+# sen_1 = "Turn on the light"
+# sen_2 = "Turn off the light"
+
+# sen_1 = "'Do not stop me now' is playing "
+# sen_2 = "Ok, Playing 'Do not stop me now'"
+
+# sen_1 = "Send a message to John"
+# sen_2 = "Send John a message"
     # Smartphones
     # "a man is playing a piano",
     # "a man is playing a trump",
